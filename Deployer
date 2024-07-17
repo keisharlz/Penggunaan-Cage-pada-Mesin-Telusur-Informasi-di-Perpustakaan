@@ -1,0 +1,5 @@
+  #DOWNLOAD
+pacman -S cage
+
+  #MENJALANKAN APLIKASI
+cage 'name browser' -- --kiosk 'name website'
