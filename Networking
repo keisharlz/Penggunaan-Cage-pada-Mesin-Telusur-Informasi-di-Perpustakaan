@@ -1,4 +1,4 @@
-  KONFIGURASI NETWORK
+  #KONFIGURASI NETWORK
 $ vim /etc/iwd/main.conf
 [General]
 EnableNetworkConfiguration=true
@@ -6,13 +6,13 @@ vim /etc/resolv.conf
 nameserver=1.1.1.1
 nameserver=8.8.8.8
 
-  DINAMIC WIFI
+  #DINAMIC WIFI
 sudo su
 iwctl
 station wlan0 connect 'name wifi'
 exit
 
-  STATIC WIFI
+  #STATIC WIFI
 vim/var/lib/iwd/'name wifi'.psk 
 [IPv4]
 Address=172.27.5.123
