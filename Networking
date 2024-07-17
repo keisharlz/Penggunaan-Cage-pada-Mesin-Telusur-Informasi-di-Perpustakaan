@@ -1,0 +1,32 @@
+  KONFIGURASI NETWORK
+$ vim /etc/iwd/main.conf
+[General]
+EnableNetworkConfiguration=true
+vim /etc/resolv.conf
+nameserver=1.1.1.1
+nameserver=8.8.8.8
+
+  DINAMIC WIFI
+sudo su
+iwctl
+station wlan0 connect 'name wifi'
+exit
+
+  STATIC WIFI
+vim/var/lib/iwd/'name wifi'.psk 
+[IPv4]
+Address=172.27.5.123
+Netmask=255.255.0.0
+Gateway=172.27.5.1
+Broadcast=172.27.5.255
+DNS=1.1.1.1
+:wq
+vim /etc/systemd/network/20-wlan.network
+[Match]
+Name=wl*
+[Network]
+Address=172.27.5.123/16
+Gateway=172.27.5.1
+DNS=1.1.1.1
+systemctl restart iwd
+systemctl restart systemd-networkd
