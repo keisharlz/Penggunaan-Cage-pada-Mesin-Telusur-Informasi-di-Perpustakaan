@@ -1,4 +1,4 @@
-  #DOWNLOAD
+  #INSTALL
 pacman -S cage
 
   #MENJALANKAN APLIKASI
