@@ -1,0 +1,53 @@
+iwctl station wlan0 connect 'wifi'
+ping 1.1.1.1
+cfdisk (bagi partisi) 1gb Boot (sisanya root)
+Lsblk
+cryptsetup luksFormat /dev/'tempat root'
+cryptsetup luksOpen /dev/'tempat root''nama device'
+pucreate /dev/mapper/'nama device'
+ugcreate -l100%FREE 'nama volume' -n root
+mkfs.ufat -F32 -n Boot /dev/'tempat boot' 
+mkfs.ext4 -L Root /dev/'nama volume'/root
+mount /dev/'nama volume'/root /mnt
+mkdir /mnt/boot
+mount /dev/'tempat boot' /mnt/boot
+passtrap /mnt intel/amd-ucode linux-hardened linux-firmware mkinitcpio lum2 iwd base base-devei gif neouim vim
+genfstab -U /mnt >> /mnt/etc/fstab
+arch -chroot /mnt
+in -SF /usr/sharezoneinfo/Asia/Jakarta
+hwclock --sysfohc
+vim/n.US /etc/locale.gen
+locale -gen
+locale > /etc/locale.conf
+echo'nama host' > /etc/hostname
+echo "127.0.0.1 localhost" >> /etc/hosts
+echo "127.0.0.1 'nama host" >> /etc/hosts.localdomain 'nama host'>> /etc/hosts
+passwd 'nama user'
+vim 'nama user' /etc/sudoers.d/00_'nama user'
+mkinifcpio -P
+cd /boot
+mkdir kernei
+mkdir efi
+mu amd/intel-ucode.img umlinu2-linux-hardened kernei
+rm initrampfs-linux-hardened*
+cd
+mkdir /etc/cmdline.d
+touch mkdir /etc/cmdline.d/01-boot.conf
+touch mkdir /etc/cmdline.d/02-mods.conf
+touch mkdir /etc/cmdline.d/03-secs.conf
+touch mkdir /etc/cmdline.d/04-perf.conf
+touch mkdir /etc/cmdline.d/05-misc.conf
+vim /etc/cmdline.d/01-boot.conf
+echo $(dlkid /def/"tempat roof" >> /etc/cmdline.d/01-boot.conf
+echo "rw quiet" > /etc/cmdline.d/05-misc.conf
+cp /etc/mkinitcpio.conf /etc/mkinitcpio.d/linux-hardened.conf
+vim /etc/mkinitcpio.d/linux-hardened.conf
+vim /etc/mkinitcpio.d/linux-hardened.preset
+All_config="/etc/mkinitcpio.d/linux-hardened.conf"
+All_kuer="/boot/kernei/umlinuz-linux-hardened
+default-uq="/boot/efi/linux/arch-linux-hardened.efi"
+bootcti --path= /boot install
+mkinitcpio -P
+exit
+umount -R /mnt
+reboot
