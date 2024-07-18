@@ -30,3 +30,16 @@ Gateway=172.27.5.1
 DNS=1.1.1.1
 systemctl restart iwd
 systemctl restart systemd-networkd
+
+  #INSTALL FIREWALLD
+pacman -S firewalld
+
+  #MENJALANKAN FIREWALLD
+sudo systemctl enable firewalld
+sudo systemctl staus firewalld
+
+  #MELIHAT ZONE LIST DAN MENAMBKAHKAN PORTS DAN SEVER
+sudo firewalld-cmd --zone=public --list-all
+sudo firewalld-cmd --permanent --zone=public --add-service=https
+sudo firewalld-cmd --permanent --zone=public --add-port=443/tcp
+sudo systemctl reload firewalld
