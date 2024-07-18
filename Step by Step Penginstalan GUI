@@ -1,11 +1,11 @@
-# Install hyprland
+#INSTALL HYPRLAND
 pacman -S hyprland Polkit polkit-gnome Pipewire pipewire-pulse Nerd-fonts Wireplumber Swaync Nautilus Kitty Wofi Waybar
 
-# Install chromium
+#INSTALL CHROMIUM
 pacman -S chromium
 
-# Install cage
+#INSTALL CAGE
 pacman -S cage
 
-# Install firewalld
+#INSTALL FIREWALLD
 pacman -S firewalld
